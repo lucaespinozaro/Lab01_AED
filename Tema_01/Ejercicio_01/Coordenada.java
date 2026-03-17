@@ -19,29 +19,29 @@ public class Coordenada {
         this.y = c.getY();
     }
 
-    public void setX(double x) {
+    void setX(double x) {
         this.x = x;
     }
 
-    public void setY(double y) {
+    void setY(double y) {
         this.y = y;
     }
 
-    public double getX() {
+    double getX() {
         return x;
     }
 
-    public double getY() {
+    double getY() {
         return y;
     }
 
-    public double distancia(Coordenada c) {
+    double distancia(Coordenada c) {
         double dif_x = this.x - c.getX();
         double dif_y = this.y - c.getY();
         return Math.sqrt(dif_x * dif_x + dif_y * dif_y);
     }
 
-    public static double distancia(Coordenada c1, Coordenada c2) {
+    static double distancia(Coordenada c1, Coordenada c2) {
         double dif_x = c1.getX() - c2.getX();
         double dif_y = c1.getY() - c2.getY();
         return Math.sqrt(dif_x * dif_x + dif_y * dif_y);
