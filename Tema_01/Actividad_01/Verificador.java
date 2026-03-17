@@ -36,13 +36,13 @@ public class Verificador {
         double r2_minY = r2.getEsquina1().getY();
         double r2_maxY = r2.getEsquina2().getY();
 
-        double maxMinX = (r1_minX > r2_minX) ? r1_minX : r2_minX;
-        double minMaxX = (r1_maxX < r2_maxX) ? r1_maxX : r2_maxX;
-        boolean solapaX = maxMinX < minMaxX;
+        double mayMinX = (r1_minX > r2_minX) ? r1_minX : r2_minX;
+        double menMaxX = (r1_maxX < r2_maxX) ? r1_maxX : r2_maxX;
+        boolean solapaX = mayMinX < menMaxX;
 
-        double maxMinY = (r1_minY > r2_minY) ? r1_minY : r2_minY;
-        double minMaxY = (r1_maxY < r2_maxY) ? r1_maxY : r2_maxY;
-        boolean solapaY = maxMinY < minMaxY;
+        double mayMinY = (r1_minY > r2_minY) ? r1_minY : r2_minY;
+        double menMaxY = (r1_maxY < r2_maxY) ? r1_maxY : r2_maxY;
+        boolean solapaY = mayMinY < menMaxY;
 
         boolean tocaX = (r1_maxX == r2_minX) || (r1_minX == r2_maxX);
         boolean tocaY = (r1_maxY == r2_minY) || (r1_minY == r2_maxY);
