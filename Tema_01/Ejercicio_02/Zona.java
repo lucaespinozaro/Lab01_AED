@@ -27,7 +27,7 @@ public class Zona {
 
     @Override
     public String toString() {
-        return tipoMineral + " | Cantidad: " + cantidad + " | Pureza: " + pureza
-                + " | Valor: " + String.format("%.2f", getValorEconomico());
+        return tipoMineral + " cantidad: " + cantidad + "  pureza: " + pureza
+                + "  Valor: " + String.format("%.2f", getValorEconomico());
     }
 }
