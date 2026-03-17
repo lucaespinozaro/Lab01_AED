@@ -38,16 +38,16 @@ public class Verificador {
 
         double mayMinX = (r1_minX > r2_minX) ? r1_minX : r2_minX;
         double menMaxX = (r1_maxX < r2_maxX) ? r1_maxX : r2_maxX;
-        boolean solapaX = mayMinX < menMaxX;
+        boolean comparteX = mayMinX < menMaxX;
 
         double mayMinY = (r1_minY > r2_minY) ? r1_minY : r2_minY;
         double menMaxY = (r1_maxY < r2_maxY) ? r1_maxY : r2_maxY;
-        boolean solapaY = mayMinY < menMaxY;
+        boolean comparteY = mayMinY < menMaxY;
 
-        boolean tocaX = (r1_maxX == r2_minX) || (r1_minX == r2_maxX);
-        boolean tocaY = (r1_maxY == r2_minY) || (r1_minY == r2_maxY);
+        boolean juntoX = (r1_maxX == r2_minX) || (r1_minX == r2_maxX);
+        boolean juntoY = (r1_maxY == r2_minY) || (r1_minY == r2_maxY);
 
-        if ((tocaX && solapaY) || (tocaY && solapaX) || (tocaX && tocaY)) {
+        if ((juntoX && comparteY) || (juntoY && comparteX) || (juntoX && juntoY)) {
             return true;
         } else {
             return false;
