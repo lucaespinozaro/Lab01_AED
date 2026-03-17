@@ -40,9 +40,9 @@ public class Verificador {
         double menMaxX = (r1_maxX < r2_maxX) ? r1_maxX : r2_maxX;
         boolean comparteX = mayMinX < menMaxX;
 
-        double maxMinY = (r1_minY > r2_minY) ? r1_minY : r2_minY;
-        double minMaxY = (r1_maxY < r2_maxY) ? r1_maxY : r2_maxY;
-        boolean comparteY = maxMinY < minMaxY;
+        double mayMinY = (r1_minY > r2_minY) ? r1_minY : r2_minY;
+        double menMaxY = (r1_maxY < r2_maxY) ? r1_maxY : r2_maxY;
+        boolean comparteY = mayMinY < menMaxY;
 
         boolean juntoX = (r1_maxX == r2_minX) || (r1_minX == r2_maxX);
         boolean juntoY = (r1_maxY == r2_minY) || (r1_minY == r2_maxY);
