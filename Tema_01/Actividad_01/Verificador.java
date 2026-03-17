@@ -1,5 +1,4 @@
 public class Verificador {
-
     public static boolean esSobrePos(Rectangulo r1, Rectangulo r2) {
         double r1_minX = r1.getEsquina1().getX();
         double r1_maxX = r1.getEsquina2().getX();
