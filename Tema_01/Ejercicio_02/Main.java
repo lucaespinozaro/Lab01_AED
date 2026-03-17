@@ -3,6 +3,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
+        System.out.println("EJERCICIO 2 MINERALES - PUREZA");
         System.out.print("Ingrese la ruta del archivo de datos (.txt): ");
         String ruta = sc.nextLine();
 
@@ -16,6 +18,7 @@ public class Main {
 
         System.out.print("Ingrese el tamano k de la subregion cuadrada (k x k): ");
         int k = sc.nextInt();
+
 
         matriz.mostrarMejorSubregion(k);
 
