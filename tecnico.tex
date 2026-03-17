@@ -1,0 +1,303 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{titlesec}
+\usepackage{setspace}
+\usepackage{multicol}
+\usepackage{minted}
+\pagestyle{empty}
+\usepackage{fancyhdr} % Encabezados y pies de página
+\usepackage{textcase}
+\usepackage{float}
+\graphicspath{{src/}}
+
+\newcommand{\autor}{Luca Daniel Espinoza Rodríguez}
+\newcommand{\mes}{Marzo}
+\newcommand{\anio}{2026}
+\newcommand{\curso}{Algoritmos y Estructura de Datos}
+\newcommand{\Npractica}{06}
+\newcommand{\tema}{POO: Clases y Arreglos de Objetos}
+\newcommand{\Ngrupo}{06}
+
+\begin{document}
+%------------------------CARÁTULA-----------------------------
+\noindent
+\begin{minipage}[t]{0.6\textwidth}
+    \textbf{UCSM Esc. Prof. de Ingeniería de Sistemas}\\[1ex]
+    \textbf{\large \mes \ - \anio}
+  \end{minipage}
+
+\begin{flushright} % asegura que empiece en línea nueva
+\begin{minipage}[t]{0.5\textwidth}
+    \centering
+    \textbf{Informe de Prácticas}\\[0.8em] % espacio más consistente
+    {\LARGE\textbf{ALGORITMOS Y}}\\[0.8em]
+    {\LARGE\textbf{ESTRUCTURA DE }}\\[0.8em]
+    {\LARGE\textbf{DATOS}}\\[0.8em]
+\end{minipage}
+\end{flushright}
+\vspace{-3cm}
+%logos centrales
+\includegraphics[width=3.5cm]{escudo_ucsm.png}\hspace{0.1cm}
+\includegraphics[width=4cm]{logo_epis.png}
+
+\vspace{1.2cm}
+
+  
+
+%titulo de practica
+\noindent
+{\huge\textbf{Práctica N° \Npractica: \tema}}
+\vspace{0.4cm}
+
+%autor/es
+\noindent
+\textbf{Elaborado por:}\\
+\MakeTextUppercase{\autor}\\
+\MakeTextUppercase{Luis Santiago Hermoza Ramos}\\
+\MakeTextUppercase{Jhoel Italo Incahuanaco Yucra}
+\vspace{2.0cm}
+
+%imagen inferior
+\begin{center}
+    \includegraphics[width=\textwidth]{ieee_bg.png}
+\end{center}
+
+%creditos
+\begin{center}
+    {\small \copyright\ IEEE 2013 The Institute of Electrical and Electronics Engineers, Inc.}
+\end{center}
+
+\newpage
+%--------------------------Encabezados--------------------------------
+\pagestyle{fancy}
+\fancyhf{} % limpia encabezado y pie
+\fancyhead[L]{UCSM - \curso}
+\fancyhead[R]{Práctica \Npractica}
+\fancyfoot[C]{\thepage}
+
+\setlength{\headheight}{15pt} % Para evitar warning
+
+%--------------------------PRELUDIO----------------------------------
+
+\begin{center}
+{\large\textbf{GRUPO N°\Ngrupo}} \\
+{\large\textbf{\MakeTextUppercase{\curso}}} \\
+\end{center}
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \textbf{Código} & \textbf{Nombre} & \textbf{Desarrollo} \\ \hline
+      2024003125 & Espinoza Rodríguez, Luca Daniel & 100\% \\ \hline
+      2024003229 & Hermoza Ramos, Luis Santiago & 100\% \\ \hline
+      2024004128 & Incahuanaco Yucra, Jhoel Italo & 100\% \\ \hline
+      
+    \end{tabular}
+\end{table}
+
+
+\newpage
+\renewcommand{\contentsname}{Índice de Contenidos}
+\tableofcontents
+
+\newpage
+\renewcommand{\listfigurename}{Índice de Figuras}
+\listoffigures
+\renewcommand{\listtablename}{Índice de Tablas}
+\listoftables
+
+
+%--------------------------INICIO DEL DOCUMENTO------------------
+\newpage
+\section{Resúmen}
+En este laboratorio se aplicaron conceptos fundamentales de 
+Algoritmos y Estructura de Datos, usando la Programación 
+Orientada a Objetos (POO) como herramienta para organizar y 
+estructurar la solución. Se trabajó con clases como 
+\texttt{Coordenada}, \texttt{Rectangulo}, \texttt{Verificador} 
+y \texttt{ContainerRect}, donde esta última funciona como una 
+estructura de datos que almacena colecciones de objetos junto 
+con información calculada como distancias euclidianas y áreas. 
+A través de estas implementaciones se pudo entender cómo 
+estructurar datos de forma eficiente y cómo aplicar algoritmos 
+básicos de cálculo geométrico dentro de un diseño modular.
+
+
+\section{Introducción}
+En el área de Algoritmos y Estructura de Datos, una de las 
+primeras habilidades que se desarrolla es la de organizar la 
+información de forma que sea fácil de procesar. Para esto, 
+no basta con saber programar: también hay que saber cómo 
+representar los datos del problema y qué operaciones se van 
+a necesitar sobre ellos. La Programación Orientada a Objetos 
+es una herramienta muy útil para esto, porque permite agrupar 
+los datos y las operaciones relacionadas en una sola unidad 
+llamada clase, lo que hace que el código sea más ordenado y 
+fácil de mantener.
+
+En este laboratorio se usó Java para implementar estructuras 
+de datos basadas en clases y arreglos de objetos. Se trabajó 
+con figuras geométricas como coordenadas y rectángulos, y se 
+diseñó una clase contenedora que funciona como una estructura 
+de almacenamiento para guardar múltiples rectángulos con su 
+información calculada. Además, se implementaron algoritmos 
+para determinar la relación espacial entre dos rectángulos y 
+para calcular áreas de sobreposición, lo cual permite ver 
+cómo los algoritmos y las estructuras de datos trabajan 
+juntos para resolver problemas reales.
+
+\newpage
+\section{Marco Teórico}
+\subsection{Clases, Objetos y Arreglos como Estructura de Datos}
+\subsubsection{¿Qué son las Clases, Objetos y Arreglos?}
+En el contexto de Algoritmos y Estructura de Datos, una clase 
+es una forma de definir un tipo de dato propio que agrupa 
+atributos y métodos. Un objeto es una instancia concreta de esa clase, es 
+decir, un dato del tipo que definimos. Los arreglos de objetos 
+son una estructura de datos lineal que permite almacenar 
+varios objetos del mismo tipo en posiciones consecutivas de 
+memoria, accediendo a cada uno por su índice. Esta combinación 
+de clases con arreglos es la base para construir estructuras 
+de datos más complejas como pilas, colas o listas, que se 
+verán más adelante en el curso. El encapsulamiento, que 
+consiste en proteger los datos internos del objeto usando 
+\texttt{private} y accediendo a ellos mediante métodos 
+\texttt{get} y \texttt{set}, garantiza que la estructura de 
+datos no pueda corromperse desde afuera.
+
+\subsubsection{¿Cómo se declara o se introduce el recurso 
+en la solución?}
+Para definir una estructura de datos propia en Java, se 
+declara una clase con la palabra clave \texttt{class}. 
+Los atributos se declaran como \texttt{private} para 
+protegerlos, y se crean métodos para acceder o modificar 
+esos datos. Los constructores permiten inicializar el objeto 
+con valores desde el momento en que se crea. Para almacenar 
+varios objetos, se declara un arreglo del tipo de la clase 
+y luego se crean los objetos uno por uno usando \texttt{new}.
+Los métodos estáticos (\texttt{static}) pertenecen a la clase 
+en sí y no a un objeto particular, lo que es útil para 
+operaciones generales como calcular la distancia entre dos 
+puntos sin depender de ningún objeto específico. El operador 
+\texttt{this} se usa dentro de la clase para referirse al 
+objeto actual, especialmente en constructores donde el nombre 
+del parámetro coincide con el del atributo.
+
+
+\begin{minted}{Java}
+public class Coordenada {
+    private double x;
+    private double y;
+
+    public Coordenada(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public double getX() { return this.x; }
+    public double getY() { return this.y; }
+    public void setX(double x) { this.x = x; }
+    public void setY(double y) { this.y = y; }
+
+    public double distancia(Coordenada c) {
+        double dx = this.x - c.getX();
+        double dy = this.y - c.getY();
+        return Math.sqrt(dx*dx + dy*dy);
+    }
+
+    public static double distancia(
+            Coordenada c1, Coordenada c2) {
+        return c1.distancia(c2);
+    }
+}
+\end{minted}
+
+\subsubsection{¿Cómo se hace uso del recurso en la solución?}
+En la solución, las clases se usan para representar los datos 
+del problema: \texttt{Coordenada} guarda un punto en el plano, 
+\texttt{Rectangulo} agrupa dos coordenadas que forman las 
+esquinas opuestas, y \texttt{ContainerRect} actúa como una 
+estructura contenedora que almacena un arreglo de rectángulos 
+junto con sus distancias y áreas calculadas. Los métodos de 
+instancia se llaman sobre un objeto concreto para operar con 
+sus datos, mientras que los métodos estáticos se usan para 
+operaciones que no dependen de ningún objeto en particular. 
+Para recorrer los arreglos y procesar cada objeto, se usan 
+ciclos \texttt{for}, que es el algoritmo de recorrido lineal 
+más básico en estructuras de datos.
+
+\begin{minted}{Java}
+for (int i = 0; i < numRec; i++) {
+    System.out.println(arreglo[i].toString());
+    System.out.println("Distancia: " + distancias[i]);
+    System.out.println("Area: " + areas[i]);
+}
+\end{minted}
+
+\subsubsection{¿Cuándo se hace uso del recurso en la solución?}
+Las clases y objetos se usan desde el inicio porque toda la 
+solución está estructurada en torno a ellos. Los arreglos de 
+objetos se usan específicamente cuando se necesita guardar 
+múltiples rectángulos al mismo tiempo, como en la clase 
+\texttt{ContainerRect}, que es la estructura de datos 
+principal del ejercicio. Los métodos estáticos se usan cuando 
+el algoritmo a ejecutar no depende del estado de ningún 
+objeto en particular, como en \texttt{Verificador}, que 
+recibe dos rectángulos como parámetros y devuelve si se 
+sobreponen, se juntan o son disjuntos. El operador 
+\texttt{this} se aplica principalmente en los constructores 
+y setters para que Java pueda distinguir entre los parámetros 
+recibidos y los atributos de la clase.
+
+\newpage
+\section{Experiencias de Práctica}
+\subsection{Experiencia de Práctica N°1: Tema 1}
+\subsection{Experiencia de Práctica N°2: Tema 2}
+\subsection{Experiencia de Práctica N°3: Tema 3}
+
+
+\newpage
+\section{Actividades}
+
+
+\newpage
+\section{Conclusiones}
+\begin{itemize}
+
+    \item Los arreglos de objetos son una estructura de datos 
+    lineal que permite almacenar colecciones de elementos del 
+    mismo tipo, y su recorrido mediante ciclos \texttt{for} 
+    es el algoritmo más básico para procesar todos los 
+    elementos almacenados en ellas.
+
+    \item El encapsulamiento no es solo una buena práctica de 
+    programación, sino también una forma de proteger la 
+    integridad de la estructura de datos, ya que al declarar 
+    los atributos como \texttt{private} se evita que los datos 
+    se modifiquen de forma incorrecta desde fuera de la clase.
+
+    \item La separación entre métodos de instancia y métodos 
+    estáticos permite distinguir entre operaciones que dependen 
+    del estado de un objeto específico y algoritmos generales 
+    que solo necesitan los datos que reciben como parámetros, 
+    como los métodos de verificación en la clase 
+    \texttt{Verificador}.
+
+    \item La composición entre clases, como el uso de objetos 
+    \texttt{Coordenada} dentro de \texttt{Rectangulo} y 
+    objetos \texttt{Rectangulo} dentro de 
+    \texttt{ContainerRect}, es la base para construir 
+    estructuras de datos más complejas, donde una estructura 
+    contiene a otras como parte de su diseño.
+\end{itemize}
+
+
+\section{Bibliografía}
+     Guevara, K., Flores, O., Galarza, M., Reinoso, G., 
+    \& Manrique, L. (2026). \textit{Laboratorio 01: POO -- 
+    Utilizando clases y arreglos de objetos}. Algoritmos y 
+    Estructura de Datos, Universidad Católica de Santa María, 
+    Escuela Profesional de Ingeniería de Sistemas.
+\end{document}
