@@ -47,7 +47,7 @@ public class Main {
 
     public static Rectangulo rectanguloS(Rectangulo r1, Rectangulo r2) {
         public static Rectangulo rectanguloS(Rectangulo r1, Rectangulo r2) {
-        double x_izq, y_inf, x_der, y_sup;
+        double x_izq, y_abj, x_der, y_arb;
 
         if (r1.getEsquina1().getX() > r2.getEsquina1().getX()) {
             x_izq = r1.getEsquina1().getX();
@@ -56,9 +56,9 @@ public class Main {
         }
 
         if (r1.getEsquina1().getY() > r2.getEsquina1().getY()) {
-            y_inf = r1.getEsquina1().getY();
+            y_abj = r1.getEsquina1().getY();
         } else {
-            y_inf = r2.getEsquina1().getY();
+            y_abj = r2.getEsquina1().getY();
         }
 
         if (r1.getEsquina2().getX() < r2.getEsquina2().getX()) {
@@ -68,11 +68,11 @@ public class Main {
         }
 
         if (r1.getEsquina2().getY() < r2.getEsquina2().getY()) {
-            y_sup = r1.getEsquina2().getY();
+            y_arb = r1.getEsquina2().getY();
         } else {
-            y_sup = r2.getEsquina2().getY();
+            y_arb = r2.getEsquina2().getY();
         }
 
-        return new Rectangulo(new Coordenada(x_izq, y_inf), new Coordenada(x_der, y_sup));
+        return new Rectangulo(new Coordenada(x_izq, y_abj), new Coordenada(x_der, y_arb));
     }
 }
