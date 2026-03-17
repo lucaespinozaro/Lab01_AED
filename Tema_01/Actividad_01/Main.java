@@ -12,7 +12,7 @@ public class Main{
     System.out.print("Ingrese otra esquina del 1er rectángulo: ");
     double x2 = sc.nextDouble();
     double y2 = sc.nextDouble();
-    Coordenada c2 = new Coordenanda(x2, y2);
+    Coordenada c2 = new Coordenada(x2, y2);
 
     Rectangulo r1 = new Rectangulo(c1, c2);
 
