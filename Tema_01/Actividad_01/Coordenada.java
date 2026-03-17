@@ -56,7 +56,7 @@ static double distancia(Coordenada c1, Coordenada c2){
   return raiz_xy; 
 }
 //método que devuelve los valores de una coordenada en determinado formato
-String toString(){
+public String toString(){
 // fill in the code here
   return "(" + x + ", " + y + ")";
 }
