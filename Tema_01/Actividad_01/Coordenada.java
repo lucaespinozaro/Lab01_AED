@@ -51,7 +51,7 @@ double distancia(Coordenada c){
 static double distancia(Coordenada c1, Coordenada c2){
 // fill in the code here
   double dif_x = c1.getX() - c2.getX();
-  double dif_x = c1.getX() - c2.getX();
+  double dif_y = c1.getY() - c2.getY();
   double raiz_xy = Math.sqrt(dif_x * dif_x + dif_y * dif_y);
   return raiz_xy; 
 }
