@@ -119,6 +119,7 @@ public class MatrizMinera {
         }
 
         System.out.println("\nValor total estimado: " + String.format("%.2f", valorTotal));
+
         System.out.println("\nMineral predominante en la región: " + mineralPred);
     }
 }
