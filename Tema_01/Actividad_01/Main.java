@@ -34,8 +34,8 @@ public class Main {
         
         if (Verificador.esSobrePos(A, B)) {
             System.out.println("Rectangulos A y B se sobreponen.");
-            Rectangulo sobre = rectanguloSobre(A, B);
-            System.out.printf("Area de sobreposicion = %.2f\n", sobre.calculoArea());
+            Rectangulo S = rectanguloSobre(A, B);
+            System.out.printf("Area de sobreposicion = %.2f\n", S.calculoArea());
         } else if (Verificador.esJunto(A, B)) {
             System.out.println("Rectangulos A y B se juntan");
         } else if (Verificador.esDisjunto(A, B)) {
