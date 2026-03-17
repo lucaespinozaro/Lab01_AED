@@ -1,5 +1,3 @@
-package Actividad_01;
-
 import java.util.*;
 
 public class Coordenada {
