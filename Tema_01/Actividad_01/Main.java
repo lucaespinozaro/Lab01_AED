@@ -3,10 +3,8 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Rectangulo A");
         System.out.print("Ingrese una esquina del 1er rectangulo: ");
         double x1 = sc.nextDouble();
         double y1 = sc.nextDouble();
@@ -19,22 +17,40 @@ public class Main {
 
         Rectangulo A = new Rectangulo(a1, a2);
 
-        System.out.println("Rectangulo B");
         System.out.print("Ingrese una esquina del 2do rectangulo: ");
-        x1 = sc.nextDouble();
-        y1 = sc.nextDouble();
-        Coordenada b1 = new Coordenada(x1, y1);
+        double x3 = sc.nextDouble();
+        double y3 = sc.nextDouble();
+        Coordenada b1 = new Coordenada(x3, y3);
 
         System.out.print("Ingrese la esquina opuesta del 2do rectangulo: ");
-        x2 = sc.nextDouble();
-        y2 = sc.nextDouble();
-        Coordenada b2 = new Coordenada(x2, y2);
+        double x4 = sc.nextDouble();
+        double y4 = sc.nextDouble();
+        Coordenada b2 = new Coordenada(x4, y4);
 
         Rectangulo B = new Rectangulo(b1, b2);
 
-        System.out.println("Rectángulo A = " + A);
-        System.out.println("Rectángulo B = " + B);
+        System.out.println("\nRectangulo A = " + A);
+        System.out.println("Rectangulo B = " + B);
+        
+        if (Verificador.esSobrePos(A, B)) {
+            System.out.println("Rectangulos A y B se sobreponen.");
+            Rectangulo sobre = rectanguloSobre(A, B);
+            System.out.printf("Area de sobreposicion = %.2f\n", sobre.calculoArea());
+        } else if (Verificador.esJunto(A, B)) {
+            System.out.println("Rectangulos A y B se juntan");
+        } else if (Verificador.esDisjunto(A, B)) {
+            System.out.println("Rectangulos A y B son disjuntos");
+        }
 
         sc.close();
+    }
+
+    public static Rectangulo rectanguloSobre(Rectangulo r1, Rectangulo r2) {
+        double x_izq = Math.max(r1.getEsquina1().getX(), r2.getEsquina1().getX());
+        double y_inf = Math.max(r1.getEsquina1().getY(), r2.getEsquina1().getY());
+        double x_der = Math.min(r1.getEsquina2().getX(), r2.getEsquina2().getX());
+        double y_sup = Math.min(r1.getEsquina2().getY(), r2.getEsquina2().getY());
+
+        return new Rectangulo(new Coordenada(x_izq, y_inf), new Coordenada(x_der, y_sup));
     }
 }
