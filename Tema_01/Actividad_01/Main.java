@@ -46,10 +46,32 @@ public class Main {
     }
 
     public static Rectangulo rectanguloSobre(Rectangulo r1, Rectangulo r2) {
-        double x_izq = Math.max(r1.getEsquina1().getX(), r2.getEsquina1().getX());
-        double y_inf = Math.max(r1.getEsquina1().getY(), r2.getEsquina1().getY());
-        double x_der = Math.min(r1.getEsquina2().getX(), r2.getEsquina2().getX());
-        double y_sup = Math.min(r1.getEsquina2().getY(), r2.getEsquina2().getY());
+        public static Rectangulo rectanguloSobre(Rectangulo r1, Rectangulo r2) {
+        double x_izq, y_inf, x_der, y_sup;
+
+        if (r1.getEsquina1().getX() > r2.getEsquina1().getX()) {
+            x_izq = r1.getEsquina1().getX();
+        } else {
+            x_izq = r2.getEsquina1().getX();
+        }
+
+        if (r1.getEsquina1().getY() > r2.getEsquina1().getY()) {
+            y_inf = r1.getEsquina1().getY();
+        } else {
+            y_inf = r2.getEsquina1().getY();
+        }
+
+        if (r1.getEsquina2().getX() < r2.getEsquina2().getX()) {
+            x_der = r1.getEsquina2().getX();
+        } else {
+            x_der = r2.getEsquina2().getX();
+        }
+
+        if (r1.getEsquina2().getY() < r2.getEsquina2().getY()) {
+            y_sup = r1.getEsquina2().getY();
+        } else {
+            y_sup = r2.getEsquina2().getY();
+        }
 
         return new Rectangulo(new Coordenada(x_izq, y_inf), new Coordenada(x_der, y_sup));
     }
