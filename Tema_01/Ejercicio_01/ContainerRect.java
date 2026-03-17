@@ -24,11 +24,11 @@ public class ContainerRect {
     }
 
     public String toString() {
-        String res = String.format("%-12s %-30s %-12s %-10s\n", "Rectangulo", "Coordenadas", "Distancia", "Area");
+        String tabla = String.format("%-12s %-30s %-12s %-10s\n", "Rectangulo", "Coordenadas", "Distancia", "Area");
         for (int i = 0; i < numRec; i++) {
-            res += String.format("%-12d %-30s %-12.3f %-10.2f\n", 
+            tabla += String.format("%-12d %-30s %-12.3f %-10.2f\n", 
                     (i + 1), rectangulos[i].toString(), distancias[i], areas[i]);
         }
-        return res;
+        return tabla;
     }
 }
