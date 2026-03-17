@@ -6,18 +6,21 @@ public class Rectangulo {
     private Coordenada esquina2;
 
     public Rectangulo(Coordenada c1, Coordenada c2) {
-        this.esquina1 = new Coordenada(c1.getX(), c1.getY());
-        this.esquina2 = new Coordenada(c2.getX(), c2.getY());
+        double minX = Math.min(c1.getX(), c2.getX());
+        double minY = Math.min(c1.getY(), c2.getY());
+        double maxX = Math.max(c1.getX(), c2.getX());
+        double maxY = Math.max(c1.getY(), c2.getY());
+        
+        this.esquina1 = new Coordenada(minX, minY);
+        this.esquina2 = new Coordenada(maxX, maxY);
     }
 
     public void setEsquina1(Coordenada coo) {
-        this.esquina1.setX(coo.getX());
-        this.esquina1.setY(coo.getY());
+        this.esquina1 = new Coordenada(coo);
     }
 
     public void setEsquina2(Coordenada coo) {
-        this.esquina2.setX(coo.getX());
-        this.esquina2.setY(coo.getY());
+        this.esquina2 = new Coordenada(coo);
     }
 
     public Coordenada getEsquina1() {
@@ -28,8 +31,13 @@ public class Rectangulo {
         return esquina2;
     }
 
+    public double calculoArea() {
+        double base = esquina2.getX() - esquina1.getX();
+        double altura = esquina2.getY() - esquina1.getY();
+        return base * altura;
+    }
+
     public String toString() {
-        return "X1: " + esquina1.getX() + " | Y1: " + esquina1.getY() +
-               "\nX2: " + esquina2.getX() + " | Y2: " + esquina2.getY();
+        return "(" + esquina1 + ", " + esquina2 + ")";
     }
 }
