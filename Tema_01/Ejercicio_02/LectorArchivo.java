@@ -3,17 +3,20 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class LectorArchivo {
+
     public static MatrizMinera leerArchivo(String ruta) {
         MatrizMinera matrizMinera = null;
 
         try {
             BufferedReader br = new BufferedReader(new FileReader(ruta));
+
             String primeraLinea = br.readLine();
             String[] dimensiones = primeraLinea.trim().split(" ");
             int filas = Integer.parseInt(dimensiones[0]);
             int columnas = Integer.parseInt(dimensiones[1]);
 
             matrizMinera = new MatrizMinera(filas, columnas);
+
             for (int i = 0; i < filas; i++) {
                 for (int j = 0; j < columnas; j++) {
                     String linea = br.readLine();
