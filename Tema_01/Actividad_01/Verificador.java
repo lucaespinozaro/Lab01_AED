@@ -11,10 +11,10 @@ public class Verificador {
         double r2_minY = r2.getEsquina1().getY();
         double r2_maxY = r2.getEsquina2().getY();
 
-        boolean fueraHorizontal = (r1_maxX <= r2_minX) || (r1_minX >= r2_maxX);
-        boolean fueraVertical = (r1_maxY <= r2_minY) || (r1_minY >= r2_maxY);
+        boolean separadoHrz = (r1_maxX <= r2_minX) || (r1_minX >= r2_maxX);
+        boolean separadoVrc = (r1_maxY <= r2_minY) || (r1_minY >= r2_maxY);
 
-        if (!fueraHorizontal && !fueraVertical) {
+        if (!separadoHrz && !separadoVrc) {
             return true;
         } else {
             return false;
@@ -36,13 +36,18 @@ public class Verificador {
         double r2_minY = r2.getEsquina1().getY();
         double r2_maxY = r2.getEsquina2().getY();
 
-        boolean solapaX = Math.max(r1_minX, r2_minX) < Math.min(r1_maxX, r2_maxX);
-        boolean solapaY = Math.max(r1_minY, r2_minY) < Math.min(r1_maxY, r2_maxY);
+        double maxMinX = (r1_minX > r2_minX) ? r1_minX : r2_minX;
+        double minMaxX = (r1_maxX < r2_maxX) ? r1_maxX : r2_maxX;
+        boolean comparteX = maxMinX < minMaxX;
 
-        boolean tocaX = (r1_maxX == r2_minX) || (r1_minX == r2_maxX);
-        boolean tocaY = (r1_maxY == r2_minY) || (r1_minY == r2_maxY);
+        double maxMinY = (r1_minY > r2_minY) ? r1_minY : r2_minY;
+        double minMaxY = (r1_maxY < r2_maxY) ? r1_maxY : r2_maxY;
+        boolean comparteY = maxMinY < minMaxY;
 
-        if ((tocaX && solapaY) || (tocaY && solapaX) || (tocaX && tocaY)) {
+        boolean juntoX = (r1_maxX == r2_minX) || (r1_minX == r2_maxX);
+        boolean juntoY = (r1_maxY == r2_minY) || (r1_minY == r2_maxY);
+
+        if ((juntoX && comparteY) || (juntoY && comparteX) || (juntoX && juntoY)) {
             return true;
         } else {
             return false;
