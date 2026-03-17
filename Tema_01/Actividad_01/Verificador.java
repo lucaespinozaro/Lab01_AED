@@ -1,8 +1,18 @@
 public class Verificador {
 
     public static boolean esSobrePos(Rectangulo r1, Rectangulo r2) {
-        boolean separadoHrz = (r1.getMaxX() <= r2.getMinX()) || (r1.getMinX() >= r2.getMaxX());
-        boolean separadoVrc = (r1.getMaxY() <= r2.getMinY()) || (r1.getMinY() >= r2.getMaxY());
+        double r1_minX = r1.getEsquina1().getX();
+        double r1_maxX = r1.getEsquina2().getX();
+        double r1_minY = r1.getEsquina1().getY();
+        double r1_maxY = r1.getEsquina2().getY();
+
+        double r2_minX = r2.getEsquina1().getX();
+        double r2_maxX = r2.getEsquina2().getX();
+        double r2_minY = r2.getEsquina1().getY();
+        double r2_maxY = r2.getEsquina2().getY();
+
+        boolean separadoHrz = (r1_maxX <= r2_minX) || (r1_minX >= r2_maxX);
+        boolean separadoVrc = (r1_maxY <= r2_minY) || (r1_minY >= r2_maxY);
 
         if (!separadoHrz && !separadoVrc) {
             return true;
@@ -16,18 +26,30 @@ public class Verificador {
             return false;
         }
 
-        double mayMinX = (r1.getMinX() > r2.getMinX()) ? r1.getMinX() : r2.getMinX();
-        double menMaxX = (r1.getMaxX() < r2.getMaxX()) ? r1.getMaxX() : r2.getMaxX();
-        boolean comparteX = mayMinX < menMaxX;
+        double r1_minX = r1.getEsquina1().getX();
+        double r1_maxX = r1.getEsquina2().getX();
+        double r1_minY = r1.getEsquina1().getY();
+        double r1_maxY = r1.getEsquina2().getY();
 
-        double mayMinY = (r1.getMinY() > r2.getMinY()) ? r1.getMinY() : r2.getMinY();
-        double menMaxY = (r1.getMaxY() < r2.getMaxY()) ? r1.getMaxY() : r2.getMaxY();
-        boolean comparteY = mayMinY < menMaxY;
+        double r2_minX = r2.getEsquina1().getX();
+        double r2_maxX = r2.getEsquina2().getX();
+        double r2_minY = r2.getEsquina1().getY();
+        double r2_maxY = r2.getEsquina2().getY();
 
-        boolean juntoX = (r1.getMaxX() == r2.getMinX()) || (r1.getMinX() == r2.getMaxX());
-        boolean juntoY = (r1.getMaxY() == r2.getMinY()) || (r1.getMinY() == r2.getMaxY());
+        // Lógica manual para solapaX
+        double maxMinX = (r1_minX > r2_minX) ? r1_minX : r2_minX;
+        double minMaxX = (r1_maxX < r2_maxX) ? r1_maxX : r2_maxX;
+        boolean solapaX = maxMinX < minMaxX;
 
-        if ((juntoX && comparteY) || (juntoY && comparteX) || (juntoX && juntoY)) {
+        // Lógica manual para solapaY
+        double maxMinY = (r1_minY > r2_minY) ? r1_minY : r2_minY;
+        double minMaxY = (r1_maxY < r2_maxY) ? r1_maxY : r2_maxY;
+        boolean solapaY = maxMinY < minMaxY;
+
+        boolean tocaX = (r1_maxX == r2_minX) || (r1_minX == r2_maxX);
+        boolean tocaY = (r1_maxY == r2_minY) || (r1_minY == r2_maxY);
+
+        if ((tocaX && solapaY) || (tocaY && solapaX) || (tocaX && tocaY)) {
             return true;
         } else {
             return false;
