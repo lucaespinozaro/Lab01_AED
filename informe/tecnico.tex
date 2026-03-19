@@ -10,6 +10,7 @@
 \usepackage{fancyhdr} % Encabezados y pies de página
 \usepackage{textcase}
 \usepackage{float}
+\usepackage{url}
 \graphicspath{{src/}}
 
 \newcommand{\autor}{Luca Daniel Espinoza Rodríguez}
@@ -102,165 +103,692 @@
 \renewcommand{\contentsname}{Índice de Contenidos}
 \tableofcontents
 
-\newpage
-\renewcommand{\listfigurename}{Índice de Figuras}
-\listoffigures
-\renewcommand{\listtablename}{Índice de Tablas}
-\listoftables
 
 
 %--------------------------INICIO DEL DOCUMENTO------------------
 \newpage
-\section{Resúmen}
-En este laboratorio se aplicaron conceptos fundamentales de 
-Algoritmos y Estructura de Datos, usando la Programación 
-Orientada a Objetos (POO) como herramienta para organizar y 
-estructurar la solución. Se trabajó con clases como 
-\texttt{Coordenada}, \texttt{Rectangulo}, \texttt{Verificador} 
-y \texttt{ContainerRect}, donde esta última funciona como una 
-estructura de datos que almacena colecciones de objetos junto 
-con información calculada como distancias euclidianas y áreas. 
-A través de estas implementaciones se pudo entender cómo 
-estructurar datos de forma eficiente y cómo aplicar algoritmos 
-básicos de cálculo geométrico dentro de un diseño modular.
 
 
 \section{Introducción}
-En el área de Algoritmos y Estructura de Datos, una de las 
-primeras habilidades que se desarrolla es la de organizar la 
-información de forma que sea fácil de procesar. Para esto, 
-no basta con saber programar: también hay que saber cómo 
-representar los datos del problema y qué operaciones se van 
-a necesitar sobre ellos. La Programación Orientada a Objetos 
-es una herramienta muy útil para esto, porque permite agrupar 
-los datos y las operaciones relacionadas en una sola unidad 
-llamada clase, lo que hace que el código sea más ordenado y 
-fácil de mantener.
+En Algoritmos y Estructuras de Datos, una de las primeras cosas que
+aprendes es a organizar la información para que sea fácil de trabajar
+con ella. La Programación Orientada a Objetos viene muy
+bien, porque te permite juntar los datos y lo que puedes hacer con
+ellos en una sola cosa llamada clase. Así el código queda más ordenado
+y es más fácil de entender.
 
-En este laboratorio se usó Java para implementar estructuras 
-de datos basadas en clases y arreglos de objetos. Se trabajó 
-con figuras geométricas como coordenadas y rectángulos, y se 
-diseñó una clase contenedora que funciona como una estructura 
-de almacenamiento para guardar múltiples rectángulos con su 
-información calculada. Además, se implementaron algoritmos 
-para determinar la relación espacial entre dos rectángulos y 
-para calcular áreas de sobreposición, lo cual permite ver 
-cómo los algoritmos y las estructuras de datos trabajan 
-juntos para resolver problemas reales.
+\noindent En este laboratorio usamos Java para
+crear estructuras de datos con clases y arreglos de
+objetos. Trabajamos con figuras geométricas como coordenadas y
+rectángulos, e hicimos una clase que sirve como una especie de "caja"
+donde puedes guardar varios rectángulos junto con su información
+calculada. También implementamos algoritmos para saber cómo se
+relacionan dos rectángulos en el espacio y para calcular qué tanto se
+superponen, lo que muestra bastante bien cómo los algoritmos y las
+estructuras de datos se complementan para resolver problemas
+concretos.
+
+\section{Objetivos}
+El objetivo del laboratorio fue implementar clases y objetos en Java
+usando los conceptos básicos de Programación Orientada a Objetos, como
+encapsulamiento, constructores y métodos, para resolver problemas de
+geometría y manejo de datos.  Para esto, creamos clases como
+Coordenada, Rectangulo y Verificador, que nos permitieron representar
+figuras geométricas y analizar cómo se relacionan entre sí en el
+espacio. También usamos arreglos de objetos para organizar la
+información dentro de una clase contenedora llamada ContainerRect.
+\\\\
+\noindent Por último, leímos datos desde un archivo .txt para cargar una matriz de
+objetos y encontrar la subregión más valiosa recorriendo esa matriz
+con bucles anidados.
+
 
 \newpage
-\section{Marco Teórico}
-\subsection{Clases, Objetos y Arreglos como Estructura de Datos}
-\subsubsection{¿Qué son las Clases, Objetos y Arreglos?}
-En el contexto de Algoritmos y Estructura de Datos, una clase 
-es una forma de definir un tipo de dato propio que agrupa 
-atributos y métodos. Un objeto es una instancia concreta de esa clase, es 
-decir, un dato del tipo que definimos. Los arreglos de objetos 
-son una estructura de datos lineal que permite almacenar 
-varios objetos del mismo tipo en posiciones consecutivas de 
-memoria, accediendo a cada uno por su índice. Esta combinación 
-de clases con arreglos es la base para construir estructuras 
-de datos más complejas como pilas, colas o listas, que se 
-verán más adelante en el curso. El encapsulamiento, que 
-consiste en proteger los datos internos del objeto usando 
-\texttt{private} y accediendo a ellos mediante métodos 
-\texttt{get} y \texttt{set}, garantiza que la estructura de 
-datos no pueda corromperse desde afuera.
-
-\subsubsection{¿Cómo se declara o se introduce el recurso 
-en la solución?}
-Para definir una estructura de datos propia en Java, se 
-declara una clase con la palabra clave \texttt{class}. 
-Los atributos se declaran como \texttt{private} para 
-protegerlos, y se crean métodos para acceder o modificar 
-esos datos. Los constructores permiten inicializar el objeto 
-con valores desde el momento en que se crea. Para almacenar 
-varios objetos, se declara un arreglo del tipo de la clase 
-y luego se crean los objetos uno por uno usando \texttt{new}.
-Los métodos estáticos (\texttt{static}) pertenecen a la clase 
-en sí y no a un objeto particular, lo que es útil para 
-operaciones generales como calcular la distancia entre dos 
-puntos sin depender de ningún objeto específico. El operador 
-\texttt{this} se usa dentro de la clase para referirse al 
-objeto actual, especialmente en constructores donde el nombre 
-del parámetro coincide con el del atributo.
+\section{Actividades}
+\subsection{Actividad N°1: Creando Rectángulos}
+\begin{enumerate}
+  \item Cree un proyecto en Java llamado PyPooAct1, en el que crea las clases del diagrama, las
+    implemente y complete lo que falte de acuerdo a las indicaciones.
 
 
-\begin{minted}{Java}
+
+\begin{minted}[fontsize=\scriptsize, frame=lines]{java}
+import java.util.*;
+
+public class Rectangulo {
+    private Coordenada esquina1;
+    private Coordenada esquina2;
+
+    public Rectangulo(Coordenada c1, Coordenada c2) {
+        double minX, minY, maxX, maxY;
+
+        if (c1.getX() < c2.getX()) {
+            minX = c1.getX();
+            maxX = c2.getX();
+        } else {
+            minX = c2.getX();
+            maxX = c1.getX();
+        }
+
+        if (c1.getY() < c2.getY()) {
+            minY = c1.getY();
+            maxY = c2.getY();
+        } else {
+            minY = c2.getY();
+            maxY = c1.getY();
+        }
+        
+        this.esquina1 = new Coordenada(minX, minY);
+        this.esquina2 = new Coordenada(maxX, maxY);
+    }
+
+    public void setEsquina1(Coordenada coo) {
+        this.esquina1 = new Coordenada(coo);
+    }
+
+    public void setEsquina2(Coordenada coo) {
+        this.esquina2 = new Coordenada(coo);
+    }
+
+    public Coordenada getEsquina1() {
+        return esquina1;
+    }
+
+    public Coordenada getEsquina2() {
+        return esquina2;
+    }
+
+    public double calculoArea() {
+        double base = esquina2.getX() - esquina1.getX();
+        double altura = esquina2.getY() - esquina1.getY();
+        return base * altura;
+    }
+
+    public String toString() {
+        return "(" + esquina1 + ", " + esquina2 + ")";
+    }
+}
+
+\end{minted}
+
+
+\begin{minted}[fontsize=\scriptsize, frame=lines]{java}
+import java.util.*;
+
 public class Coordenada {
     private double x;
     private double y;
+
+    public Coordenada() {
+        this.x = 0;
+        this.y = 0;
+    }
 
     public Coordenada(double x, double y) {
         this.x = x;
         this.y = y;
     }
 
-    public double getX() { return this.x; }
-    public double getY() { return this.y; }
-    public void setX(double x) { this.x = x; }
-    public void setY(double y) { this.y = y; }
-
-    public double distancia(Coordenada c) {
-        double dx = this.x - c.getX();
-        double dy = this.y - c.getY();
-        return Math.sqrt(dx*dx + dy*dy);
+    public Coordenada(Coordenada c) {
+        this.x = c.getX();
+        this.y = c.getY();
     }
 
-    public static double distancia(
-            Coordenada c1, Coordenada c2) {
-        return c1.distancia(c2);
+    void setX(double x) {
+        this.x = x;
+    }
+
+    void setY(double y) {
+        this.y = y;
+    }
+
+    double getX() {
+        return x;
+    }
+
+    double getY() {
+        return y;
+    }
+
+    double distancia(Coordenada c) {
+        double dif_x = this.x - c.getX();
+        double dif_y = this.y - c.getY();
+        return Math.sqrt(dif_x * dif_x + dif_y * dif_y);
+    }
+
+    static double distancia(Coordenada c1, Coordenada c2) {
+        double dif_x = c1.getX() - c2.getX();
+        double dif_y = c1.getY() - c2.getY();
+        return Math.sqrt(dif_x * dif_x + dif_y * dif_y);
+    }
+
+    public String toString() {
+        return "[" + x + ", " + y + "]";
+    }
+}
+
+\end{minted}
+
+    \newpage
+    
+  \item Declare e implemente la clase Principal que contenga el método main que realice lo siguiente:
+    
+a. Crear dos objetos Rectángulo (A y B) cuyos lados son paralelos a los ejes X y Y, y que son
+valores ingresados por el usuario (debe asumir que el usuario ingresa dos esquinas distintas
+para el rectángulo. Debe asumir que el rectángulo tiene siempre un área positiva. NO
+necesita comprobar éstas condiciones).
+
+La función \texttt{esSobrePos} revisa si los rectángulos están separados en algún eje, 
+y si no lo están en ninguno, entonces se superponen. \texttt{esJunto} descarta 
+primero la sobreposición y luego revisa si comparten exactamente un borde.
+\texttt{esDisjunto} simplemente es la negación de los dos anteriores.
+
+\begin{minted}[fontsize=\scriptsize, frame=lines]{java}
+public class Verificador {
+    public static boolean esSobrePos(Rectangulo r1, Rectangulo r2) {
+        double r1_minX = r1.getEsquina1().getX();
+        double r1_maxX = r1.getEsquina2().getX();
+        double r1_minY = r1.getEsquina1().getY();
+        double r1_maxY = r1.getEsquina2().getY();
+
+        double r2_minX = r2.getEsquina1().getX();
+        double r2_maxX = r2.getEsquina2().getX();
+        double r2_minY = r2.getEsquina1().getY();
+        double r2_maxY = r2.getEsquina2().getY();
+
+        boolean separadoHrz = (r1_maxX <= r2_minX) || (r1_minX >= r2_maxX);
+        boolean separadoVrc = (r1_maxY <= r2_minY) || (r1_minY >= r2_maxY);
+
+        if (!separadoHrz && !separadoVrc) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean esJunto(Rectangulo r1, Rectangulo r2) {
+        if (esSobrePos(r1, r2)) {
+            return false;
+        }
+
+        double r1_minX = r1.getEsquina1().getX();
+        double r1_maxX = r1.getEsquina2().getX();
+        double r1_minY = r1.getEsquina1().getY();
+        double r1_maxY = r1.getEsquina2().getY();
+
+        double r2_minX = r2.getEsquina1().getX();
+        double r2_maxX = r2.getEsquina2().getX();
+        double r2_minY = r2.getEsquina1().getY();
+        double r2_maxY = r2.getEsquina2().getY();
+
+        double mayMinX = (r1_minX > r2_minX) ? r1_minX : r2_minX;
+        double menMaxX = (r1_maxX < r2_maxX) ? r1_maxX : r2_maxX;
+        boolean comparteX = mayMinX < menMaxX;
+
+        double mayMinY = (r1_minY > r2_minY) ? r1_minY : r2_minY;
+        double menMaxY = (r1_maxY < r2_maxY) ? r1_maxY : r2_maxY;
+        boolean comparteY = mayMinY < menMaxY;
+
+        boolean juntoX = (r1_maxX == r2_minX) || (r1_minX == r2_maxX);
+        boolean juntoY = (r1_maxY == r2_minY) || (r1_minY == r2_maxY);
+
+        if ((juntoX && comparteY) || (juntoY && comparteX) || (juntoX && juntoY)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean esDisjunto(Rectangulo r1, Rectangulo r2) {
+        if (!esSobrePos(r1, r2) && !esJunto(r1, r2)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
+\end{minted}
+
+
+El main pide al usuario las esquinas de dos rectángulos, los crea y luego 
+usa \texttt{Verificador} para saber si se superponen, se juntan o son disjuntos.
+Si se superponen, llama a \texttt{rectanguloS} que calcula el rectángulo 
+de intersección y muestra su área.
+
+\begin{minted}[fontsize=\scriptsize, frame=lines]{java}
+import java.util.Scanner;
+
+public class Main {
+
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+
+    System.out.print("Ingrese una esquina del 1er rectangulo: ");
+    double x1 = sc.nextDouble();
+    double y1 = sc.nextDouble();
+    Coordenada a1 = new Coordenada(x1, y1);
+
+    System.out.print("Ingrese la esquina opuesta del 1er rectangulo: ");
+    double x2 = sc.nextDouble();
+    double y2 = sc.nextDouble();
+    Coordenada a2 = new Coordenada(x2, y2);
+
+    Rectangulo A = new Rectangulo(a1, a2);
+
+    System.out.print("Ingrese una esquina del 2do rectangulo: ");
+
+    ...
+
+
+    System.out.println("\nRectangulo A = " + A);
+    System.out.println("Rectangulo B = " + B);
+        
+    if (Verificador.esSobrePos(A, B)) {
+      System.out.println("Rectangulos A y B se sobreponen.");
+      Rectangulo S = rectanguloS(A, B);
+      System.out.printf("Area de sobreposicion = %.2f\n", S.calculoArea());
+    } else if (Verificador.esJunto(A, B)) {
+      System.out.println("Rectangulos A y B se juntan");
+    } else if (Verificador.esDisjunto(A, B)) {
+      System.out.println("Rectangulos A y B son disjuntos");
+    }
+
+    sc.close();
+  }
+
+  public static Rectangulo rectanguloS(Rectangulo r1, Rectangulo r2) {
+
+    double x_izq, y_abj, x_der, y_arb;
+
+    if (r1.getEsquina1().getX() > r2.getEsquina1().getX()) {
+      x_izq = r1.getEsquina1().getX();
+    } else {
+      x_izq = r2.getEsquina1().getX();
+    }
+
+    if (r1.getEsquina1().getY() > r2.getEsquina1().getY()) {
+      y_abj = r1.getEsquina1().getY();
+    } else {
+      y_abj = r2.getEsquina1().getY();
+    }
+
+    if (r1.getEsquina2().getX() < r2.getEsquina2().getX()) {
+      x_der = r1.getEsquina2().getX();
+    } else {
+      x_der = r2.getEsquina2().getX();
+    }
+
+    if (r1.getEsquina2().getY() < r2.getEsquina2().getY()) {
+      y_arb = r1.getEsquina2().getY();
+    } else {
+      y_arb = r2.getEsquina2().getY();
+    }
+
+    return new Rectangulo(new Coordenada(x_izq, y_abj), new Coordenada(x_der, y_arb));
+  }
+}
+
+\end{minted}
+    
+
+    
+
+\end{enumerate}
+
+\newpage
+\section{Ejercicios}
+\subsection{Ejercicio N°1: Contenedor de Rectángulos}
+
+Esta clase guarda un arreglo de rectángulos junto con sus áreas y distancias 
+diagonales precalculadas. El atributo \texttt{numRec} es estático, lo que 
+significa que es compartido entre todas las instancias. El método \texttt{toString} 
+muestra todo en una tabla formateada con los datos de cada rectángulo.
+\begin{minted}[fontsize=\scriptsize, frame=lines]{java}
+public class ContainerRect {
+    private Rectangulo[] rectangulos;
+    private double[] distancias;
+    private double[] areas;
+    private int n;
+    private static int numRec = 0;
+
+    public ContainerRect(int n) {
+        this.n = n;
+        this.rectangulos = new Rectangulo[n];
+        this.distancias = new double[n];
+        this.areas = new double[n];
+    }
+
+    public void addRectangulo(Rectangulo r) {
+        if (numRec < n) {
+            rectangulos[numRec] = r;
+            distancias[numRec] = r.getEsquina1().distancia(r.getEsquina2());
+            areas[numRec] = r.calculoArea();
+            numRec++;
+        } else {
+            System.out.println("Ya no es posible guardar el rectangulo");
+        }
+    }
+
+    public String toString() {
+        String tabla = String.format("%-12s %-30s %-12s %-10s\n", "Rectangulo", "Coordenadas", "Distancia", "Area");
+        for (int i = 0; i < numRec; i++) {
+            tabla += String.format("%-12d %-30s %-12.3f %-10.2f\n", 
+                    (i + 1), rectangulos[i].toString(), distancias[i], areas[i]);
+        }
+        return tabla;
+    }
+}
+
+\end{minted}
+
+\subsection{Ejercicio N°2: Análisis de una Zona Minera}
+
+El main pide la ruta del archivo y el tamaño \texttt{k} al usuario, carga 
+la matriz con \texttt{LectorArchivo} y llama a \texttt{mostrarMejorSubregion} 
+que imprime la posición, las zonas y el valor total de la mejor subregión encontrada.
+
+\begin{minted}[fontsize=\scriptsize, frame=lines]{java}
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("EJERCICIO 2 MINERALES - PUREZA");
+        System.out.print("Ingrese la ruta del archivo de datos (.txt): ");
+        String ruta = sc.nextLine();
+
+        MatrizMinera matriz = LectorArchivo.leerArchivo(ruta);
+
+        if (matriz == null) {
+            System.out.println("No se pudo cargar la matriz. Terminando programa.");
+            sc.close();
+            return;
+        }
+
+        System.out.print("Ingrese el tamano k de la subregion cuadrada (k x k): ");
+        int k = sc.nextInt();
+
+
+        matriz.mostrarMejorSubregion(k);
+
+        sc.close();
     }
 }
 \end{minted}
 
-\subsubsection{¿Cómo se hace uso del recurso en la solución?}
-En la solución, las clases se usan para representar los datos 
-del problema: \texttt{Coordenada} guarda un punto en el plano, 
-\texttt{Rectangulo} agrupa dos coordenadas que forman las 
-esquinas opuestas, y \texttt{ContainerRect} actúa como una 
-estructura contenedora que almacena un arreglo de rectángulos 
-junto con sus distancias y áreas calculadas. Los métodos de 
-instancia se llaman sobre un objeto concreto para operar con 
-sus datos, mientras que los métodos estáticos se usan para 
-operaciones que no dependen de ningún objeto en particular. 
-Para recorrer los arreglos y procesar cada objeto, se usan 
-ciclos \texttt{for}, que es el algoritmo de recorrido lineal 
-más básico en estructuras de datos.
+Guarda todas las zonas en una matriz bidimensional. El método 
+\texttt{encontrarMejorSubregion} recorre todas las posiciones posibles 
+y calcula el valor total de cada subregión de tamaño $k \times k$, quedándose 
+con la de mayor valor. \texttt{getMineralPredominante} cuenta manualmente 
+cuántas veces aparece cada mineral usando arreglos.
 
-\begin{minted}{Java}
-for (int i = 0; i < numRec; i++) {
-    System.out.println(arreglo[i].toString());
-    System.out.println("Distancia: " + distancias[i]);
-    System.out.println("Area: " + areas[i]);
+\begin{minted}[fontsize=\scriptsize, frame=lines]{java}
+public class MatrizMinera {
+    private Zona[][] matriz;
+    private int filas;
+    private int columnas;
+
+    public MatrizMinera(int filas, int columnas) {
+        this.filas = filas;
+        this.columnas = columnas;
+        this.matriz = new Zona[filas][columnas];
+    }
+
+    public void setZona(int fila, int columna, Zona zona) {
+        matriz[fila][columna] = zona;
+    }
+
+    public Zona getZona(int fila, int columna) {
+        return matriz[fila][columna];
+    }
+
+    public int getFilas() {
+        return filas;
+    }
+
+    public int getColumnas() {
+        return columnas;
+    }
+
+    public double calcularValorSubregion(int filaInicio, int colInicio, int k) {
+        double total = 0;
+        for (int i = filaInicio; i < filaInicio + k; i++) {
+            for (int j = colInicio; j < colInicio + k; j++) {
+                total += matriz[i][j].getValorEconomico();
+            }
+        }
+        return total;
+    }
+
+    public String getMineralPredominante(int filaInicio, int colInicio, int k) {
+        String[] minerales = new String[k * k];
+        int[] conteos = new int[k * k];
+        int totalMinerales = 0;
+
+        for (int i = filaInicio; i < filaInicio + k; i++) {
+            for (int j = colInicio; j < colInicio + k; j++) {
+                String tipo = matriz[i][j].getTipoMineral();
+                boolean encontrado = false;
+                for (int m = 0; m < totalMinerales; m++) {
+                    if (minerales[m].equals(tipo)) {
+                        conteos[m]++;
+                        encontrado = true;
+                        break;
+                    }
+                }
+                if (!encontrado) {
+                    minerales[totalMinerales] = tipo;
+                    conteos[totalMinerales] = 1;
+                    totalMinerales++;
+                }
+            }
+        }
+
+        String predominante = minerales[0];
+        int maxConteo = conteos[0];
+        for (int m = 1; m < totalMinerales; m++) {
+            if (conteos[m] > maxConteo) {
+                maxConteo = conteos[m];
+                predominante = minerales[m];
+            }
+        }
+        return predominante;
+    }
+
+    public int[] encontrarMejorSubregion(int k) {
+        if (k > filas || k > columnas) {
+            System.out.println("Error: k es mayor que las dimensiones de la matriz.");
+            return null;
+        }
+
+        double maxValor = -1;
+        int mejorFila = 0;
+        int mejorCol = 0;
+
+        for (int i = 0; i <= filas - k; i++) {
+            for (int j = 0; j <= columnas - k; j++) {
+                double valor = calcularValorSubregion(i, j, k);
+                if (valor > maxValor) {
+                    maxValor = valor;
+                    mejorFila = i;
+                    mejorCol = j;
+                }
+            }
+        }
+
+        return new int[]{mejorFila, mejorCol};
+    }
+
+    public void mostrarMejorSubregion(int k) {
+        int[] posicion = encontrarMejorSubregion(k);
+        if (posicion == null) return;
+
+        int fila = posicion[0];
+        int col = posicion[1];
+        double valorTotal = calcularValorSubregion(fila, col, k);
+        String mineralPred = getMineralPredominante(fila, col, k);
+
+        System.out.println("Región más valiosa encontrada:\n");
+
+        System.out.println("Posición inicial: (" + fila + ", " + col + ")");
+        System.out.println("Tamaño de la región: " + k + " x " + k + "\n");
+
+        System.out.println("Zonas analizadas:");
+        for (int i = fila; i < fila + k; i++) {
+            for (int j = col; j < col + k; j++) {
+                Zona z = matriz[i][j];
+                System.out.println("[ " + z.getTipoMineral() +
+                        ", cantidad: " + z.getCantidad() +
+                        ", pureza: " + z.getPureza() + " ]");
+            }
+        }
+
+        System.out.println("\nValor total estimado: " + String.format("%.2f", valorTotal));
+
+        System.out.println("\nMineral predominante en la región: " + mineralPred);
+    }
 }
+
 \end{minted}
 
-\subsubsection{¿Cuándo se hace uso del recurso en la solución?}
-Las clases y objetos se usan desde el inicio porque toda la 
-solución está estructurada en torno a ellos. Los arreglos de 
-objetos se usan específicamente cuando se necesita guardar 
-múltiples rectángulos al mismo tiempo, como en la clase 
-\texttt{ContainerRect}, que es la estructura de datos 
-principal del ejercicio. Los métodos estáticos se usan cuando 
-el algoritmo a ejecutar no depende del estado de ningún 
-objeto en particular, como en \texttt{Verificador}, que 
-recibe dos rectángulos como parámetros y devuelve si se 
-sobreponen, se juntan o son disjuntos. El operador 
-\texttt{this} se aplica principalmente en los constructores 
-y setters para que Java pueda distinguir entre los parámetros 
-recibidos y los atributos de la clase.
+Representa una celda de la matriz minera con un tipo de mineral, una cantidad 
+y un nivel de pureza. El método \texttt{getValorEconomico} multiplica cantidad 
+por pureza para obtener el valor de esa zona.
+
+\begin{minted}[fontsize=\scriptsize, frame=lines]{java}
+public class Zona {
+    private String tipoMineral;
+    private int cantidad;
+    private double pureza;
+
+    public Zona(String tipoMineral, int cantidad, double pureza) {
+        this.tipoMineral = tipoMineral;
+        this.cantidad = cantidad;
+        this.pureza = pureza;
+    }
+
+    public double getValorEconomico() {
+        return cantidad * pureza;
+    }
+
+    public String getTipoMineral() {
+        return tipoMineral;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public double getPureza() {
+        return pureza;
+    }
+
+    @Override
+    public String toString() {
+        return tipoMineral + " cantidad: " + cantidad + "  pureza: " + pureza
+                + "  Valor: " + String.format("%.2f", getValorEconomico());
+    }
+}
+
+\end{minted}
+
+Lee el archivo \texttt{.txt} línea por línea: la primera línea tiene las dimensiones 
+de la matriz y las siguientes tienen los datos de cada zona separados por espacios.
+Usa \texttt{trim().split(" ")} para limpiar los datos y los convierte al tipo 
+correcto antes de crear cada objeto \texttt{Zona}.
+
+\begin{minted}[fontsize=\scriptsize, frame=lines]{java}
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class LectorArchivo {
+
+    public static MatrizMinera leerArchivo(String ruta) {
+        MatrizMinera matrizMinera = null;
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(ruta));
+
+            String primeraLinea = br.readLine();
+            String[] dimensiones = primeraLinea.trim().split(" ");
+            int filas = Integer.parseInt(dimensiones[0]);
+            int columnas = Integer.parseInt(dimensiones[1]);
+
+            matrizMinera = new MatrizMinera(filas, columnas);
+
+            for (int i = 0; i < filas; i++) {
+                for (int j = 0; j < columnas; j++) {
+                    String linea = br.readLine();
+                    if (linea == null) {
+                        System.out.println("Error: el archivo tiene menos datos de los esperados.");
+                        br.close();
+                        return null;
+                    }
+                    String[] partes = linea.trim().split(" ");
+                    String tipoMineral = partes[0];
+                    int cantidad = Integer.parseInt(partes[1]);
+                    double pureza = Double.parseDouble(partes[2]);
+
+                    Zona zona = new Zona(tipoMineral, cantidad, pureza);
+                    matrizMinera.setZona(i, j, zona);
+                }
+            }
+
+            br.close();
+            System.out.println("Archivo leido correctamente: " + filas + "x" + columnas + " zonas cargadas.");
+
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+        } catch (NumberFormatException e) {
+            System.out.println("Error en el formato del archivo: " + e.getMessage());
+        }
+
+        return matrizMinera;
+    }
+}
+
+\end{minted}
+
+\begin{minted}[fontsize=\scriptsize, frame=lines]{text}
+3 3
+Oro 10 0.9
+Plata 8 0.85
+Cobre 12 0.7
+Oro 6 0.92
+Oro 4 0.88
+Plata 7 0.8
+Cobre 9 0.75
+Oro 5 0.9
+Plata 6 0.82
+
+\end{minted}
+
 
 \newpage
-\section{Experiencias de Práctica}
-\subsection{Experiencia de Práctica N°1: Tema 1}
-\subsection{Experiencia de Práctica N°2: Tema 2}
-\subsection{Experiencia de Práctica N°3: Tema 3}
+\section{Dificultades Encontradas}
+Al momento de implementar la clase \texttt{Verificador}, me costó bastante entender 
+cómo detectar correctamente cuándo dos rectángulos se tocan sin sobreponerse. 
+La diferencia entre ``junto'' y ``sobreposición'' no era tan obvia al principio, 
+y tuve que pensar bien en qué condiciones comparten un borde sin tener área en común.
 
+En el Ejercicio 2, otra dificultad fue leer correctamente el archivo \texttt{.txt} 
+y separar bien cada dato por línea. Al principio no tenía claro cómo manejar los 
+espacios entre los valores, y el programa fallaba al intentar convertir los datos 
+a \texttt{int} o \texttt{double}.
 
-\newpage
-\section{Actividades}
+\section{Soluciones Implementadas}
+Para el problema con \texttt{Verificador}, lo resolví pensando en los casos por separado: 
+primero verifico si hay sobreposición, y si no la hay, reviso si comparten exactamente 
+un borde con rango válido en el eje contrario. Dividir el problema en tres métodos 
+(\texttt{esSobrePos}, \texttt{esJunto}, \texttt{esDisjunto}) me ayudó a ordenar mejor la lógica.
 
+Para la lectura del archivo, usé \texttt{trim().split(" ")} para limpiar espacios 
+y separar cada línea en sus partes. También agregué mensajes de error con 
+\texttt{try-catch} para identificar rápido si el archivo tenía un formato incorrecto 
+o si la ruta estaba mal escrita.
 
 \newpage
 \section{Conclusiones}
@@ -300,4 +828,18 @@ recibidos y los atributos de la clase.
     Utilizando clases y arreglos de objetos}. Algoritmos y 
     Estructura de Datos, Universidad Católica de Santa María, 
     Escuela Profesional de Ingeniería de Sistemas.
+
+
+\section{Anexos}
+
+\begin{center}
+\centering\textbf{ANEXO A:}\\
+\end{center}
+Repositorio que almacena los códigos de los ejercicios y actividades realizados durante
+el Laboratorio N°1
+
+\noindent\url{https://github.com/lucaespinozaro/Lab01_AED}
+
+    
+
 \end{document}
